@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/plane_view"
+        android:title="Diet Plane"
+        android:icon="@drawable/ic_schedule_black_24dp"
+        />
+
+    <item
+        android:id="@+id/food_items"
+        android:title="Consumed Food Items"
+        android:icon="@drawable/ic_local_grocery_store_black_24dp"/>
+
+</menu>

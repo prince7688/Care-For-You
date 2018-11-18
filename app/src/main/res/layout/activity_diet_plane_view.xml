@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DietPlane.DietPlaneView">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/showstatics"
+        android:background="@drawable/curtainshape">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:id="@+id/ststicslayout"
+        android:visibility="visible">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/frstrelative"
+                android:gravity="center">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1234"
+                    android:id="@+id/progressenergy"
+                    android:layout_above="@id/dummykcal"
+                    android:layout_centerInParent="true"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:fontFamily="@font/fjallaoneregular"
+                    android:textColor="#ffffff" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="KCal Left"
+                    android:id="@+id/dummykcal"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:fontFamily="@font/fjallaoneregular"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff" />
+
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:progress="0"
+                    android:max="100"
+                    android:progressDrawable="@drawable/progressbarshape"
+                    android:background="@drawable/circle_shape"
+                    android:progressTint="#FFFFFF"
+                    android:progressBackgroundTint="#4d34ff"
+                    />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/frstrelative"
+                android:layout_alignParentBottom="true">
+
+                <ProgressBar
+                    android:id="@+id/progressBar3"
+                    style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:progress="0"
+                    android:progressTint="#FFFFFF"
+                    android:progressBackgroundTint="#CCC"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBar4"
+                    style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:progress="0"
+                    android:progressTint="#FFFFFF"
+                    android:progressBackgroundTint="#CCC"/>
+
+
+                <ProgressBar
+                    android:id="@+id/progressBar5"
+                    style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:progress="0"
+                    android:progressTint="#FFFFFF"
+                    android:progressBackgroundTint="#CCC"/>
+
+
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:text="FAT"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:fontFamily="@font/fjallaoneregular"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:layout_above="@id/progressBar3"
+                    />
+
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="PROTIEN"
+                    android:gravity="center"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:fontFamily="@font/fjallaoneregular"
+                    android:textColor="#ffffff"
+                    android:layout_above="@id/progressBar4"
+                    />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:text="CARBS"
+                    android:gravity="center"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:fontFamily="@font/fjallaoneregular"
+                    android:textColor="#ffffff"
+                    android:layout_above="@id/progressBar5"/>
+
+
+
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:text="43g"
+                    android:id="@+id/progressfat"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:fontFamily="@font/fjallaoneregular"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:layout_below="@id/progressBar3"
+                    />
+
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="43g"
+                    android:id="@+id/progressprotien"
+                    android:gravity="center"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:fontFamily="@font/fjallaoneregular"
+                    android:textColor="#ffffff"
+                    android:layout_below="@id/progressBar4"
+                    />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:text="43g"
+                    android:id="@+id/progresscarbo"
+                    android:gravity="center"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:fontFamily="@font/fjallaoneregular"
+                    android:textColor="#ffffff"
+                    android:layout_below="@id/progressBar5"
+                    />
+
+
+
+
+            </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:text="Set your Today Plane By Pressing + Button"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textAppearance="?android:textAppearanceMedium"-->
+            <!--android:fontFamily="@font/fjallaoneregular"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:id="@+id/planemessage"-->
+            <!--android:visibility="invisible"/>-->
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/showstatics"
+        android:padding="10dp">
+
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <android.support.v7.widget.CardView
+                 android:layout_width="match_parent"
+                 android:layout_height="160dp"
+                 app:cardCornerRadius="10dp"
+                 android:id="@+id/breakfast_cardview"
+                 app:cardElevation="2dp"
+                 app:cardMaxElevation="5dp"
+                 app:contentPaddingTop="5dp">
+
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:paddingTop="5dp">
+
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/breakfast_name"
+                         android:textAppearance="?android:textAppearanceLarge"
+                         android:gravity="left"
+                         android:layout_marginLeft="5dp"
+                         android:text="Breakfast"/>
+
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:layout_marginTop="10dp"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentStart="true"
+                         android:background="#F1F8E9"
+                         android:layout_below="@id/breakfast_name"
+                         android:orientation="vertical"
+                         android:gravity="center">
+
+                         <ImageView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:src="@drawable/breakfast"/>
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="Recommended"
+                              android:id="@+id/breakfast_rec"
+                              android:textAppearance="?android:textAppearanceSmall"
+                              />
+
+
+                     </LinearLayout>
+
+
+
+                 </RelativeLayout>
+
+
+             </android.support.v7.widget.CardView>
+
+             <android.support.v7.widget.CardView
+                 android:layout_width="match_parent"
+                 android:layout_height="160dp"
+                 app:cardCornerRadius="10dp"
+                 android:id="@+id/lunch_cardview"
+                 android:layout_marginTop="20dp"
+                 android:layout_below="@id/breakfast_cardview"
+                 app:cardElevation="2dp"
+                 app:cardMaxElevation="5dp"
+                 app:contentPaddingTop="5dp">
+
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:paddingTop="5dp">
+
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/lunch_name"
+                         android:textAppearance="?android:textAppearanceLarge"
+                         android:gravity="left"
+                         android:layout_marginLeft="5dp"
+                         android:text="Lunch"/>
+
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:layout_marginTop="10dp"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentStart="true"
+                         android:background="#F1F8E9"
+                         android:layout_below="@id/lunch_name"
+                         android:orientation="vertical"
+                         android:gravity="center">
+
+                         <ImageView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:src="@drawable/lunch"/>
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="Recommended"
+                             android:id="@+id/lunch_rec"
+                             android:textAppearance="?android:textAppearanceSmall"
+                             />
+
+
+                     </LinearLayout>
+
+
+
+                 </RelativeLayout>
+
+
+             </android.support.v7.widget.CardView>
+
+             <android.support.v7.widget.CardView
+                 android:layout_width="match_parent"
+                 android:layout_height="160dp"
+                 app:cardCornerRadius="10dp"
+                 android:id="@+id/dinner_cardview"
+                 app:cardElevation="2dp"
+                 android:layout_marginTop="20dp"
+                 android:layout_below="@id/lunch_cardview"
+                 app:cardMaxElevation="5dp"
+                 app:contentPaddingTop="5dp">
+
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:paddingTop="5dp">
+
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/dinner_name"
+                         android:textAppearance="?android:textAppearanceLarge"
+                         android:gravity="left"
+                         android:layout_marginLeft="5dp"
+                         android:text="Dinner"/>
+
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:layout_marginTop="10dp"
+                         android:layout_alignParentBottom="true"
+                         android:layout_alignParentStart="true"
+                         android:background="#F1F8E9"
+                         android:layout_below="@id/dinner_name"
+                         android:orientation="vertical"
+                         android:gravity="center">
+
+                         <ImageView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:src="@drawable/dinner"/>
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="Recommended"
+                             android:id="@+id/dinner_rec"
+                             android:textAppearance="?android:textAppearanceSmall"
+                             />
+
+
+                     </LinearLayout>
+
+
+
+                 </RelativeLayout>
+
+
+             </android.support.v7.widget.CardView>
+
+
+         </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

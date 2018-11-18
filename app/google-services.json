@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1095247743765",
+    "firebase_url": "https://care-for-you-7f24b.firebaseio.com",
+    "project_id": "care-for-you-7f24b",
+    "storage_bucket": "care-for-you-7f24b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095247743765:android:d3bec9c7a348e016",
+        "android_client_info": {
+          "package_name": "com.example.hp.careforyou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095247743765-o4m5pknip9p60khcb1sesa086a3h4t3j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hp.careforyou",
+            "certificate_hash": "72d66ea86086bcc15afdfc185556100628ee3a72"
+          }
+        },
+        {
+          "client_id": "1095247743765-tivc41jvgq4i868179328d5bl75887hr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHTHONTWnI4h04jhbMvQgudcqKdIowfgg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095247743765-tivc41jvgq4i868179328d5bl75887hr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

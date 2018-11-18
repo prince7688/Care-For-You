@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#90A4AE"
+    tools:context="com.example.hp.careforyou.ScanResult">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarresult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/backgroungcolor"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetStart="0dp"
+        app:titleTextColor="@android:color/white" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_below="@+id/toolbarresult"
+            android:weightSum="1"
+            android:id="@+id/cardviewlayout"
+            android:visibility="gone">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:cardMaxElevation="5dp"
+                app:contentPadding="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/itemname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        tools:text="Item Name" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="140dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="63dp"
+                                android:layout_height="20dp"
+                                android:layout_weight="1"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="1dp"
+                                android:gravity="center"
+                                android:text="Water"
+                                android:textAppearance="?android:textAppearanceMedium"
+                                android:fontFamily="@font/fjallaoneregular"
+                                android:textColor="#ffffff"
+                                android:background="@drawable/shapetextview" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                tools:text="Water"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:id="@+id/water"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="140dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="63dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Fat"
+                                android:textAppearance="?android:textAppearanceMedium"
+                                android:fontFamily="@font/fjallaoneregular"
+                                android:textColor="#ffffff"
+                                android:background="@drawable/shapetextview" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                tools:text="Fat"
+                                android:id="@+id/fat"
+                                android:gravity="center"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="140dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="63dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Energy"
+                                android:textAppearance="?android:textAppearanceMedium"
+                                android:fontFamily="@font/fjallaoneregular"
+                                android:textColor="#ffffff"
+                                android:background="@drawable/shapetextview" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                tools:text="Energy"
+                                android:gravity="center"
+                                android:id="@+id/energy"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="140dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="63dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Salt"
+                                android:textAppearance="?android:textAppearanceMedium"
+                                android:fontFamily="@font/fjallaoneregular"
+                                android:textColor="#ffffff"
+                                android:background="@drawable/shapetextview" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                tools:text="Salt"
+                                android:id="@+id/salt"
+                                android:gravity="center"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="140dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="63dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Sugar"
+                                android:textAppearance="?android:textAppearanceMedium"
+                                android:fontFamily="@font/fjallaoneregular"
+                                android:textColor="#ffffff"
+                                android:background="@drawable/shapetextview" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                tools:text="Sugar"
+                                android:id="@+id/sugar"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:cardMaxElevation="5dp"
+                app:contentPadding="10dp">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical|left"
+                                android:text="Cholesterol"
+                                android:layout_marginTop="20dp"
+                                android:textAlignment="center"
+                                android:textAppearance="?android:textAppearanceLarge" />
+
+                            <TextView
+                                android:id="@+id/choles"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:text="Choles"
+                                android:layout_margin="4dp"
+                                android:fontFamily="@font/antonregular"
+                                android:textAlignment="center"
+                                android:textColor="#FFFFFF"
+                                android:gravity="right|center_vertical"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/shapetextview"
+                                android:textAppearance="?android:textAppearanceSmall"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical|left"
+                                android:text="Charbohydrate"
+                                android:layout_marginTop="20dp"
+                                android:textAlignment="center"
+                                android:textAppearance="?android:textAppearanceLarge" />
+
+                            <TextView
+                                android:id="@+id/charbo"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:text="Charbo"
+                                android:layout_margin="4dp"
+                                android:fontFamily="@font/antonregular"
+                                android:textAlignment="center"
+                                android:textColor="#FFFFFF"
+                                android:gravity="right|center_vertical"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/shapetextview"
+                                android:textAppearance="?android:textAppearanceSmall"/>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical|left"
+                                android:text="Fiber"
+                                android:layout_marginTop="20dp"
+                                android:textAlignment="center"
+                                android:textAppearance="?android:textAppearanceLarge" />
+
+                            <TextView
+                                android:id="@+id/fiber"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:text="Fiber"
+                                android:layout_margin="4dp"
+                                android:fontFamily="@font/antonregular"
+                                android:textAlignment="center"
+                                android:textColor="#FFFFFF"
+                                android:gravity="right|center_vertical"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/shapetextview"
+                                android:textAppearance="?android:textAppearanceSmall"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical|left"
+                                android:text="Protien"
+                                android:layout_marginTop="20dp"
+                                android:textAlignment="center"
+                                android:textAppearance="?android:textAppearanceLarge" />
+
+                            <TextView
+                                android:id="@+id/protien"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:text="Protien"
+                                android:layout_margin="4dp"
+                                android:fontFamily="@font/antonregular"
+                                android:textAlignment="center"
+                                android:textColor="#FFFFFF"
+                                android:gravity="right|center_vertical"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/shapetextview"
+                                android:textAppearance="?android:textAppearanceSmall"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical|left"
+                                android:text="Vitamin A"
+                                android:layout_marginTop="20dp"
+                                android:textAlignment="center"
+                                android:textAppearance="?android:textAppearanceLarge" />
+
+                            <TextView
+                                android:id="@+id/vitaminA"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:text="vitaminA"
+                                android:layout_margin="4dp"
+                                android:fontFamily="@font/antonregular"
+                                android:textAlignment="center"
+                                android:textColor="#FFFFFF"
+                                android:gravity="right|center_vertical"
+                                android:layout_alignParentRight="true"
+                                android:background="@drawable/shapetextview"
+                                android:textAppearance="?android:textAppearanceSmall"/>
+
+                        </RelativeLayout>
+
+
+
+
+                    </LinearLayout>
+
+
+                </ScrollView>
+
+
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="No Data Found"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/internettext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="No Internet Connection Found.."
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>
+

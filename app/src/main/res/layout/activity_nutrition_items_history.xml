@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#90A4AE">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarhistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/backgroungcolor"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetStart="0dp"
+        app:titleTextColor="@android:color/white" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_below="@id/toolbarhistory"
+        android:layout_height="match_parent"
+        tools:context=".Database.NutritionItemsHistory"
+        android:id="@+id/recyclerviewitems"/>
+
+
+</RelativeLayout>

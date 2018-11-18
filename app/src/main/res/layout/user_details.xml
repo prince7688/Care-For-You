@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:id="@+id/linearlayout_details"
+        android:visibility="gone">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lets start with the basics"
+                android:layout_gravity="center"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MALE"
+                    android:id="@+id/male_button"
+                    android:background="@drawable/buttonshape"
+                    android:layout_marginLeft="65dp"
+                    android:layout_alignParentLeft="true"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FEMALE"
+                    android:id="@+id/female_button"
+                    android:background="@drawable/buttonshape"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="65dp"
+                    />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/text_inputlayout_age"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:errorEnabled="true"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/text_age"
+            android:layout_width="match_parent"
+            android:textColorHint="#000000"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:hint="Age" />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/text_inputlayout_height"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_below="@id/text_input_layout"
+        app:errorEnabled="true"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/text_height"
+            android:layout_width="match_parent"
+            android:textColorHint="#000000"
+            android:inputType="numberDecimal"
+            android:layout_height="wrap_content"
+            android:hint="height (cm)"/>
+
+
+    </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_inputlayout_weight"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_below="@id/text_input_layout"
+            app:errorEnabled="true"
+            android:layout_marginBottom="10dp">
+
+            <EditText
+                android:id="@+id/text_weight"
+                android:layout_width="match_parent"
+                android:textColorHint="#000000"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:hint="weight (kg)"/>
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:id="@+id/next_button"
+            android:layout_marginTop="30dp"
+            android:background="@color/backgroungcolor"
+            />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        android:layout_margin="15dp"
+        android:id="@+id/linearlayout_image"
+        android:background="@color/shapecolor"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10dp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/padmasana"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textStyle="bold"
+            android:padding="35dp"
+            android:maxLines="1"
+            android:text="Lets start with the basics"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="MALE"
+                android:id="@+id/image_male_button"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/buttonshape"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/image_female_button"
+                android:text="FEMALE"
+                android:background="@drawable/buttonshape"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

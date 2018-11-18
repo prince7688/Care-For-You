@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbaractivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/backgroungcolor"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetStart="0dp"
+        app:titleTextColor="@android:color/white" />
+
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:layout_below="@id/toolbaractivity"
+        android:background="#90A4AE"
+        tools:context=".DietPlane.Plane_temp2">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="40dp"
+        android:id="@+id/activity_sedentaryactive"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/backgroungcolor"
+        android:stateListAnimator="@animator/cardviewtouch">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Sedentary"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/courgetteregular"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Easy Excersise"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_gravity="center"
+            android:fontFamily="@font/courgetteregular"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="40dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/activity_lightactive"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/backgroungcolor"
+        android:stateListAnimator="@animator/cardviewtouch">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Lightly Active"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:fontFamily="@font/courgetteregular"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Light Sports Once &amp; Twise A Week"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_gravity="center"
+                android:fontFamily="@font/courgetteregular"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="40dp"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        android:id="@+id/activity_moderateactive"
+        app:cardBackgroundColor="@color/backgroungcolor"
+        android:stateListAnimator="@animator/cardviewtouch">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Moderately Active"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:fontFamily="@font/courgetteregular"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="3 - 5 Days Sports"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_gravity="center"
+                android:fontFamily="@font/courgetteregular"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="40dp"
+        android:id="@+id/activity_veryactive"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/backgroungcolor"
+        android:stateListAnimator="@animator/cardviewtouch">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Very Active"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:fontFamily="@font/courgetteregular"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="7- Days Exercise"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_gravity="center"
+                android:fontFamily="@font/courgetteregular"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="40dp"
+        android:id="@+id/activity_extraactive"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/backgroungcolor"
+        android:stateListAnimator="@animator/cardviewtouch">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Extra Active"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:fontFamily="@font/courgetteregular"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="An Athlete &amp; Sports Person"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_gravity="center"
+                android:fontFamily="@font/courgetteregular"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>
+
+</RelativeLayout>
