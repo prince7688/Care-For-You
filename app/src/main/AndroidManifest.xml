@@ -76,6 +76,8 @@
 
         <activity android:name=".DietPlane.PlaneViewActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
+        <activity android:name=".Location.MapsActivity"></activity>
     </application>
 
 </manifest>

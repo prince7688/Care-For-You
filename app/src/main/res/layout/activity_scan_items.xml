@@ -43,8 +43,10 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:text="Summit"
+            android:text="Submit"
             android:id="@+id/summitbutton"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/buttonshape"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:enabled="true"

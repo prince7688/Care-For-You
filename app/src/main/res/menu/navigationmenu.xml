@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home"
+        android:id="@+id/home"/>
+
+    <item android:icon="@drawable/ic_share_black_24dp"
+        android:title="Share"
+        android:id="@+id/share"/>
+
+    <item android:icon="@drawable/ic_feedback_black_24dp"
+        android:title="Feedback"
+        android:id="@+id/feedback"/>
+
+    <item android:icon="@drawable/markasfavouritestar"
+        android:title="Rating"
+        android:id="@+id/rating"/>
+
+    <item android:icon="@drawable/ic_supervisor_account_black_24dp"
+        android:title="About Us"
+        android:id="@+id/aboutus"/>
+
 
 </menu>

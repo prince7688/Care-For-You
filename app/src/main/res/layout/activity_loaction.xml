@@ -14,6 +14,25 @@
         <!--android:id="@+id/textoutput"-->
         <!--android:text="latitute location"/>-->
 
+    <Button
+        android:id="@+id/B_hopistals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:onClick="onClick"
+        android:background="@drawable/buttonshape"
+        android:text="Hospitals"
+        android:layout_marginBottom="5dp"/>
+
+    <Button
+        android:id="@+id/B_schools"
+        android:background="@drawable/buttonshape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:onClick="onClick"
+        android:text="Market" />
+
     <fragment
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"

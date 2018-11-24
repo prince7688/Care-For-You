@@ -1,6 +1,8 @@
 package com.example.hp.careforyou;
 
 import android.app.LoaderManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +30,7 @@ import com.example.hp.careforyou.Database.NutritionDatabase;
 import com.example.hp.careforyou.Database.NutritionEntity;
 import com.example.hp.careforyou.DietPlane.DietConsumedItemsPojo;
 import com.example.hp.careforyou.DietPlane.DietItemsPojo;
+import com.example.hp.careforyou.DietPlane.PlaneViewActivity;
 import com.example.hp.careforyou.DietPlane.Plane_temp;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -54,6 +58,8 @@ public class ScanResult extends AppCompatActivity implements LoaderManager.Loade
     private int temp = 0;
 
     private int consumed=0;
+
+    double finalenergy;
 
     private static final String Food_BASE_REQUEST_URL ="https://api.nutritionix.com/v1_1/item";
     final static String PARAM_QUERY_upc = "upc";
@@ -315,6 +321,7 @@ public class ScanResult extends AppCompatActivity implements LoaderManager.Loade
                 {
                     Extra1 extra = new Extra1(brand_consumed,item_consumed,new Date());
                     mDb.dietItemsList().insertItem(extra);
+                    sendNotification();
                 }
             }
         });
@@ -331,6 +338,31 @@ public class ScanResult extends AppCompatActivity implements LoaderManager.Loade
 
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+
+
+    public void sendNotification() {
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this);
+
+        //Create the intent that’ll fire when the user taps the notification//
+
+        Intent intent = new Intent(ScanResult.this, PlaneViewActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        mBuilder.setContentIntent(pendingIntent);
+
+        mBuilder.setSmallIcon(R.drawable.welcome_image);
+        mBuilder.setContentTitle("Today Calory Reminder!!!");
+        mBuilder.setContentText(String.valueOf(Math.round(finalenergy))+ " KCalory Left");
+
+        NotificationManager mNotificationManager =
+
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(001, mBuilder.build());
     }
 
     private void consumeditem() {
@@ -352,20 +384,49 @@ public class ScanResult extends AppCompatActivity implements LoaderManager.Loade
                 mDb.dietItemsDao().insertConsumedPlane(currentdateplane);
                 Toast.makeText(ScanResult.this,"You Consumed this Item",Toast.LENGTH_LONG).show();
                 consumed=1;
+                finalenergy =dietItemsPojo.getEnergy()-energy;
+
 
             }
 
             else {
-                double finalenergy = dietConsumedItemsPojo.getEnergy() - energy;
+                finalenergy = dietConsumedItemsPojo.getEnergy() - energy;
                 double finalprotine = dietConsumedItemsPojo.getProtien() - protien;
                 double finalfat = dietConsumedItemsPojo.getFat() - fat;
                 double finalcarbo = dietConsumedItemsPojo.getCarbo() - carbo;
 
-                mDb.dietItemsDao().updateConsumedPlane(String.valueOf(finalenergy), String.valueOf(finalfat), String.valueOf(finalprotine),
-                        String.valueOf(finalcarbo), dateFormat.format(currentdate));
-                Toast.makeText(ScanResult.this,"You Consumed this Item",Toast.LENGTH_LONG).show();
-                consumed=1;
-             }
+                if (finalenergy < 0 || finalprotine < 0 || finalcarbo < 0 || finalfat < 0) {
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(ScanResult.this);
+                    builder1.setTitle("You Consumed Your daily limit !!");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    builder1.setNegativeButton(
+                            "Ok",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+
+                } else {
+
+                    mDb.dietItemsDao().updateConsumedPlane(String.valueOf(finalenergy), String.valueOf(finalfat), String.valueOf(finalprotine),
+                            String.valueOf(finalcarbo), dateFormat.format(currentdate));
+                    Toast.makeText(ScanResult.this, "You Consumed this Item", Toast.LENGTH_LONG).show();
+                    consumed = 1;
+                }
+            }
         }
 
         else

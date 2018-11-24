@@ -62,7 +62,7 @@ public final class HttpQueryUtils {
 
             else
             {
-                Log.e(LOG_TAG, "Error Resonse Code : " + urlConnection.getResponseCode());
+                Log.e(LOG_TAG, "Error Response Code : " + urlConnection.getResponseCode());
             }
         }
         catch (IOException e)

@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class LocationActivity extends AppCompatActivity  implements GoogleApiCli
     private LocationCallback mLocationCallback;
     private Location mLastLocation;
     private Double mlat,mlog;
+    int PROXIMITY_RADIUS = 10000;
     GoogleMap m_map;
     boolean mapReady = false;
     private Marker mMarker;
@@ -225,6 +227,97 @@ public class LocationActivity extends AppCompatActivity  implements GoogleApiCli
         mGoogleApiClient.connect();
 
     }
+
+    public void onClick(View v)
+    {
+        Object dataTransfer[] = new Object[2];
+        GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+
+        switch(v.getId())
+        {
+//            case R.id.B_search:
+//                EditText tf_location =  findViewById(R.id.TF_location);
+//                String location = tf_location.getText().toString();
+//                List<Address> addressList;
+//
+//
+//                if(!location.equals(""))
+//                {
+//                    Geocoder geocoder = new Geocoder(this);
+//
+//                    try {
+//                        addressList = geocoder.getFromLocationName(location, 5);
+//
+//                        if(addressList != null)
+//                        {
+//                            for(int i = 0;i<addressList.size();i++)
+//                            {
+//                                LatLng latLng = new LatLng(addressList.get(i).getLatitude() , addressList.get(i).getLongitude());
+//                                MarkerOptions markerOptions = new MarkerOptions();
+//                                markerOptions.position(latLng);
+//                                markerOptions.title(location);
+//                                mMap.addMarker(markerOptions);
+//                                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+//                                mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+//                            }
+//                        }
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//                break;
+            case R.id.B_hopistals:
+                m_map.clear();
+                String hospital = "hospital";
+                String url = getUrl(mlat, mlog, hospital);
+                dataTransfer[0] = m_map;
+                dataTransfer[1] = url;
+
+                getNearbyPlacesData.execute(dataTransfer);
+                Toast.makeText(this, "Showing Nearby Hospitals", Toast.LENGTH_SHORT).show();
+                break;
+//
+//
+            case R.id.B_schools:
+                m_map.clear();
+                String school = "market";
+                url = getUrl(mlat, mlog, school);
+                dataTransfer[0] = m_map;
+                dataTransfer[1] = url;
+
+                getNearbyPlacesData.execute(dataTransfer);
+                Toast.makeText(this, "Showing Nearby stores", Toast.LENGTH_SHORT).show();
+                break;
+//            case R.id.B_restaurants:
+//                mMap.clear();
+//                String resturant = "restuarant";
+//                url = getUrl(latitude, longitude, resturant);
+//                dataTransfer[0] = mMap;
+//                dataTransfer[1] = url;
+//
+//                getNearbyPlacesData.execute(dataTransfer);
+//                Toast.makeText(MapsActivity.this, "Showing Nearby Restaurants", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.B_to:
+        }
+    }
+
+
+    private String getUrl(double latitude , double longitude , String nearbyPlace)
+    {
+
+        StringBuilder googlePlaceUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googlePlaceUrl.append("location="+latitude+","+longitude);
+        googlePlaceUrl.append("&radius="+PROXIMITY_RADIUS);
+        googlePlaceUrl.append("&type="+nearbyPlace);
+        googlePlaceUrl.append("&sensor=true");
+        googlePlaceUrl.append("&key="+"AIzaSyBLEPBRfw7sMb73Mr88L91Jqh3tuE4mKsE");
+
+        Log.d("MapsActivity", "url = "+googlePlaceUrl.toString());
+
+        return googlePlaceUrl.toString();
+    }
+
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

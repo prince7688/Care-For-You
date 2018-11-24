@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.example.hp.careforyou.R;
 import com.example.hp.careforyou.ScanItemsActivity;
 import com.example.hp.careforyou.ScanResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Plane_temp extends AppCompatActivity{
 
@@ -26,6 +28,11 @@ public class Plane_temp extends AppCompatActivity{
     EditText text_age, text_height, text_weight;
 
     Button next_button;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mMessagesDatabaseReference;
+    private DatabaseReference mMessagesDatabaseReferenceage;
+    private DatabaseReference mMessagesDatabaseReferenceweight;
+    private DatabaseReference mMessagesDatabaseReferenceheight;
 
     double Bmr;
 
@@ -54,6 +61,13 @@ public class Plane_temp extends AppCompatActivity{
 
         next_button =(Button)findViewById(R.id.next_button);
 
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("gender");
+        mMessagesDatabaseReferenceage = mFirebaseDatabase.getReference().child("age");
+        mMessagesDatabaseReferenceweight = mFirebaseDatabase.getReference().child("weight");
+        mMessagesDatabaseReferenceheight = mFirebaseDatabase.getReference().child("height");
+
+
 
         image_male_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +84,10 @@ public class Plane_temp extends AppCompatActivity{
 
                         if(checkerror())
                         {
+                            mMessagesDatabaseReference.push().setValue("MALE");
+                            mMessagesDatabaseReferenceage.push().setValue(text_age.getText().toString());
+                            mMessagesDatabaseReferenceweight.push().setValue(text_weight.getText().toString());
+                            mMessagesDatabaseReferenceheight.push().setValue(text_height.getText().toString());
                             double Bmr1  = (10 * (Double.parseDouble(text_weight.getText().toString())));
                             double Bmr2  = (6.25 * (Double.parseDouble(text_height.getText().toString())));
                             int Bmr3 =  (5 * (Integer.parseInt(text_age.getText().toString())));
@@ -107,6 +125,10 @@ public class Plane_temp extends AppCompatActivity{
 
                         if(checkerror())
                         {
+                            mMessagesDatabaseReference.push().setValue("FEMALE");
+                            mMessagesDatabaseReferenceage.push().setValue(text_age.getText().toString());
+                            mMessagesDatabaseReferenceweight.push().setValue(text_weight.getText().toString());
+                            mMessagesDatabaseReferenceheight.push().setValue(text_height.getText().toString());
                             double Bmr1  = (10 * (Double.parseDouble(text_weight.getText().toString())));
                             double Bmr2  = (6.25 * (Double.parseDouble(text_height.getText().toString())));
                             int Bmr3 =  (5 * (Integer.parseInt(text_age.getText().toString())));

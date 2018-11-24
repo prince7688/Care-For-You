@@ -1,17 +1,23 @@
 package com.example.hp.careforyou;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,9 +30,12 @@ import com.example.hp.careforyou.DietPlane.DietPlaneView;
 import com.example.hp.careforyou.DietPlane.PlaneViewActivity;
 import com.example.hp.careforyou.DietPlane.Plane_temp;
 import com.example.hp.careforyou.Location.LocationActivity;
+import com.example.hp.careforyou.Location.MapsActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -46,11 +55,14 @@ public class MainActivity extends AppCompatActivity {
     private String mUsername;
     private Uri mUserImageUrl;
     public static final String ANONYMOUS = "anonymous";
+
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mMessagesDatabaseReference;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     private DrawerLayout drawerLayout;
-
+    NavigationView navigationView;
     private static final String DATE_FORMAT = "dd/MM/yyy";
     private SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.getDefault());
 
@@ -91,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         mLocationCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent locationIntent = new Intent(getApplicationContext(),LocationActivity.class);
+                Intent locationIntent = new Intent(getApplicationContext(), LocationActivity.class);
                 startActivity(locationIntent);
             }
         });
@@ -121,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         drawerLayout =(DrawerLayout)findViewById(R.id.drawer);
-        NavigationView navigationView =(NavigationView)findViewById(R.id.navview);
+        navigationView =(NavigationView)findViewById(R.id.navview);
         View headerview = navigationView.getHeaderView(0);
         usertextview = (TextView) headerview.findViewById(R.id.username);
         logoutbtn =(Button)headerview.findViewById(R.id.logoutbtn);
@@ -129,8 +141,11 @@ public class MainActivity extends AppCompatActivity {
 
         mGridView =(GridLayout)findViewById(R.id.gridview);
         mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("ratings");
 
         signmethod();
+        setnavdrawer();
 
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +157,70 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void setnavdrawer() {
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.home:
+                        drawerLayout.closeDrawers();
+                        break;
+
+                    case R.id.share:
+                        drawerLayout.closeDrawers();
+                        Intent myIntent =  new Intent(Intent.ACTION_SEND);
+                        myIntent.setType("text/plain");
+                        String sharebody = "android app that maintains your diet and give you healthy suggestions";
+                        String sharesub = "Care For You";
+                        myIntent.putExtra(Intent.EXTRA_SUBJECT,sharesub);
+                        myIntent.putExtra(Intent.EXTRA_TEXT,sharebody);
+                        startActivity(Intent.createChooser(myIntent,"Share Using"));
+                        break;
+
+                    case R.id.feedback:
+                        drawerLayout.closeDrawers();
+                        String myemail = "princeagrawal512@gmail.com";
+                        Intent email = new Intent(Intent.ACTION_SEND);
+                        email.putExtra(Intent.EXTRA_EMAIL,new String[]{myemail});
+                        email.putExtra(Intent.EXTRA_SUBJECT,"Feedback");
+                        email.putExtra(Intent.EXTRA_TEXT,"Enter Your Message here");
+                        email.setType("message/rfc822");
+                        startActivity(Intent.createChooser(email,"Choose app to send mail"));
+                        break;
+
+
+                    case  R.id.rating:
+                        drawerLayout.closeDrawers();
+                        final View v1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.ratinglayout, null);
+                        final RatingBar ratingBar = (RatingBar)v1.findViewById(R.id.ratingBar);
+                        AlertDialog.Builder al = new AlertDialog.Builder(MainActivity.this);
+                        al.setMessage("Rating!!!").setView(v1).setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                mMessagesDatabaseReference.push().setValue(ratingBar.getRating());
+                                Toast.makeText(MainActivity.this,"Thanks For rating us " + ratingBar.getRating() ,Toast.LENGTH_LONG).show();
+                            }
+                        }).setNegativeButton("Cancel", null).setCancelable(false);
+                        AlertDialog ale = al.create();
+                        ale.show();
+                        break;
+
+
+                    case R.id.aboutus:
+                        drawerLayout.closeDrawers();
+                        String url = "https://www.linkedin.com/in/prince-singhal-a54b5a150/";
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
@@ -209,7 +288,34 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    public void ScanBarcodeclickoncardview(View view) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+//    @Override
+//    public boolean onNavigatio(MenuItem item) {
+//        switch (item.getItemId())
+//        {
+//            case R.id.home:
+//                drawerLayout.closeDrawers();
+//                break;
+//
+//            case R.id.share:
+//                Intent myIntent =  new Intent(Intent.ACTION_SEND);
+//                myIntent.setType("text/plain");
+//                String sharebody = "android app that maintains your diet and give you healthy suggestions";
+//                String sharesub = "Care For You";
+//                myIntent.putExtra(Intent.EXTRA_SUBJECT,sharesub);
+//                myIntent.putExtra(Intent.EXTRA_TEXT,sharebody);
+//                startActivity(Intent.createChooser(myIntent,"Share Using"));
+//                break;
+//
+//        }
+//        return true;
+//    }
+
+    //    public void ScanBarcodeclickoncardview(View view) {
 //
 //        mScanBrcodesCardView = (CardView)findViewById(R.id.scanfooditemscardview);
 //        mScanBrcodesCardView.setOnClickListener(new View.OnClickListener() {

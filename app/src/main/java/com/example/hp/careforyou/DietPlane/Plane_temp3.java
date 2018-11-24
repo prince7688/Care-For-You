@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.hp.careforyou.Database.NutritionDatabase;
 import com.example.hp.careforyou.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,7 +35,10 @@ public class Plane_temp3 extends AppCompatActivity {
     double cc;
     int temp=0;
     TextInputLayout text_goal_weight, text_goal_days,text_radio_goal;
-
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mMessagesDatabaseReference;
+    private DatabaseReference mMessagesDatabaseReferencegoalweight;
+    private DatabaseReference mMessagesDatabaseReferencegoal;
 
     private NutritionDatabase mDb;
     private static final String DATE_FORMAT = "dd/MM/yyy";
@@ -70,6 +75,11 @@ public class Plane_temp3 extends AppCompatActivity {
 
         mDb = NutritionDatabase.getInstance(getApplicationContext());
 
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("goaldays");
+        mMessagesDatabaseReferencegoalweight = mFirebaseDatabase.getReference().child("goalweight");
+        mMessagesDatabaseReferencegoal = mFirebaseDatabase.getReference().child("goal");
+
         goal_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @SuppressLint("ResourceType")
             @Override
@@ -100,6 +110,9 @@ public class Plane_temp3 extends AppCompatActivity {
                     RadioButton rb2 = (RadioButton)findViewById(goal_group.getCheckedRadioButtonId());
                      if(rb2.getText().equals("Be Healthier"))
                     {
+                        mMessagesDatabaseReference.push().setValue(0);
+                        mMessagesDatabaseReferencegoal.push().setValue("Be Healthier");
+                        mMessagesDatabaseReferencegoalweight.push().setValue(0);
                         cc = Tdervalue;
                         temp=1;
                     }
@@ -116,7 +129,10 @@ public class Plane_temp3 extends AppCompatActivity {
                         text_goal_weight.setError("*Weight must be grater than your weight");
                         temp=0;
                     } else {
+                          mMessagesDatabaseReferencegoal.push().setValue("GAIN WEIGHT");
                         text_goal_weight.setError(null);
+                          mMessagesDatabaseReference.push().setValue(goal_days.getText().toString());
+                          mMessagesDatabaseReferencegoalweight.push().setValue(goal_weight.getText().toString());
                         cc = Tdervalue + comvalue;
                         temp = 1;
 
@@ -135,6 +151,9 @@ public class Plane_temp3 extends AppCompatActivity {
                             text_goal_weight.setError("*Weight must be lower than your weight");
                             temp=0;
                         } else {
+                            mMessagesDatabaseReferencegoal.push().setValue("lOSS WEIGHT");
+                            mMessagesDatabaseReference.push().setValue(goal_days.getText().toString());
+                            mMessagesDatabaseReferencegoalweight.push().setValue(goal_weight.getText().toString());
                             text_goal_weight.setError(null);
                             cc = Tdervalue - comvalue;
                             temp = 1;
