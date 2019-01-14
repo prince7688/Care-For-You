@@ -1,5 +1,4 @@
 # Care-For-You
-Introduction
      Care for You is an android app that is your one stop solution for all things food and health related. In today’s health conscious world full of food products which offer you low calorie and farm fresh foods, this app is your guide to find out the truth behind it.
 Simply by scanning the product with your mobile phone camera you can have all the nutritional information that it offers. Our app goes one step further and based on your dietary need suggest you the food items you should eat. 
 The motivation behind this idea are two major sustainable development goals that are:
